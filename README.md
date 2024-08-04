@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # fintechsphere
 =======
 [//]: # (Hello welcome to my project 
@@ -127,3 +128,7 @@ We provide comprehensive ticker information and ensure accurate predictions thro
 ## Thank you!
 
 >>>>>>> 25b1ba5 (Initial commit)
+=======
+# fintech-sphere
+My specialization project.
+>>>>>>> ab17adceb45f70cd4a98cdade65f77168af047aa
