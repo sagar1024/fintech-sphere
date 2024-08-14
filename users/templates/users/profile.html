@@ -141,43 +141,50 @@
             <!-- Profile Content Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
-                    <h2>Profile</h2>
-                    <p>Username: {{ user.username }}</p>
-                    <p>Coins: {{ profile.coins }}</p>
+                    <h2 style="padding:20px;">Profile</h2>
+                    <hr style="color:white; padding:1px;">
+                    <br>
+                    <p><img src="{% static 'image/user.png' %}" alt="user" style="height: 20px; width:20px;"> Username: {{ user.username }}</p>
+                    <p><img src="{% static 'image/coin.png' %}" alt="coin" style="height: 20px; width:20px;"> Coins: {{ profile.coins }}</p>
 
                     <h3>Investments</h3>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Stock Symbol</th>
-                                <th>Amount Invested</th>
-                                <th>Current Value</th>
-                                <th>Profit/Loss</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in investments_with_values %}
-                            <tr>
-                                <td>{{ item.investment.stock_symbol }}</td>
-                                <td>{{ item.investment.amount_invested }}</td>
-                                <td>{{ item.current_value }}</td>
-                                <td>
-                                    {% if item.profit_or_loss > 0 %}
-                                    <span style="color: green;">{{ item.profit_or_loss }}</span>
-                                    {% elif item.profit_or_loss < 0 %} <span style="color: red;">{{ item.profit_or_loss}}</span>
-                                        {% else %}
-                                        {{ item.profit_or_loss }}
-                                        {% endif %}
-                                </td>
-                            </tr>
-                            {% empty %}
-                            <tr>
-                                <td colspan="4">No investments yet.</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    <a href="{% url 'users:invest' %}" class="btn btn-primary">Invest in Stocks</a>
+                    <div class="investment-table" style="padding:20px;">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Stock Symbol</th>
+                                    <th>Amount Invested</th>
+                                    <th>Current Value</th>
+                                    <th>Profit/Loss</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in investments_with_values %}
+                                <tr>
+                                    <td>{{ item.investment.stock_symbol }}</td>
+                                    <td>{{ item.investment.amount_invested }}</td>
+                                    <td>{{ item.current_value }}</td>
+                                    <td>
+                                        {% if item.profit_or_loss > 0 %}
+                                        <span style="color: green;">{{ item.profit_or_loss }}</span>
+                                        {% elif item.profit_or_loss < 0 %} <span style="color: red;">{{
+                                            item.profit_or_loss}}</span>
+                                            {% else %}
+                                            {{ item.profit_or_loss }}
+                                            {% endif %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4">No investments yet.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="invest-button" style="padding: 20px;">
+                        <a href="{% url 'users:invest' %}" class="btn btn-primary">Invest in Stocks</a>
+                    </div>
                 </div>
             </div>
             <!-- Profile Content End -->

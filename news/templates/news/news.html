@@ -154,7 +154,7 @@
             <!--Ending Runing name and logo-->
 
             <!-- Financial News Analysis Section -->
-            <div class="news-analysis">
+            <!-- <div class="news-analysis">
                 <div class="container mt-4">
                     <h2 class="text-primary">Financial News Analysis</h2>
                     <form method="POST">
@@ -186,6 +186,51 @@
 
                     <h3 class="mt-4 text-primary">Stock Price Graph</h3>
                     <img src="data:image/png;base64,{{ graph }}" alt="Stock Price Graph" class="img-fluid" />
+                    {% endif %}
+                </div>
+            </div> -->
+            <!-- Financial News Analysis Section End -->
+
+            <!-- Financial News Analysis Section -->
+            <div class="news-analysis" style="margin:10px;">
+                <div class="container mt-4" style="max-width: 700px; margin-top:30px; margin-bottom:30px; padding-top:10px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; box-shadow: 0px 0px 15px rgba(164, 157, 157, 0.1);">
+                    <h2 class="text-primary" style="margin:20px; text-align: center; padding-top:10px;">Financial News Analysis</h2>
+                    <hr style="color: aliceblue; margin-bottom:40px;">
+                    <form method="POST" style="font-family: Arial, Helvetica, sans-serif; font-size:larger; text-align: center; padding:10px;">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <br>
+                        <button type="submit" class="btn btn-primary mt-2" style="margin-bottom:50px;">Fetch News</button>
+                    </form>
+
+                    {% if news_data %}
+                    <h3 class="mt-4 text-primary" style="text-align: center;">News and Sentiment</h3>
+                    <table class="table table-bordered mt-3" style="text-align: center;">
+                        <thead class="bg-secondary text-white">
+                            <tr>
+                                <th>Headline</th>
+                                <th>Published At</th>
+                                <th>Sentiment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for news in news_data %}
+                            <tr>
+                                <td>{{ news.headline }}</td>
+                                <td>{{ news.published_at }}</td>
+                                <td
+                                    class="{% if news.sentiment == 'Positive' %}sentiment-positive{% elif news.sentiment == 'Negative' %}sentiment-negative{% else %}sentiment-neutral{% endif %}">
+                                    {{ news.sentiment }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <h3 class="mt-4 text-primary" style="text-align: center;">Stock Price Graph</h3>
+                    <div style="text-align: center;">
+                        <img src="data:image/png;base64,{{ graph }}" alt="Stock Price Graph" class="img-fluid"
+                            style="margin: 0 auto;" />
+                    </div>
                     {% endif %}
                 </div>
             </div>
@@ -251,4 +296,5 @@
     <script src="{% static 'js/main.js' %}"></script>
 
 </body>
+
 </html>

@@ -23,7 +23,7 @@ from news import views as news_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', app_views.index, name='home'),
+    path('', app_views.index, name='index'),
     path('search/', app_views.search, name='search'),
     path('predict/<str:ticker_value>/<str:number_of_days>/', app_views.predict, name='predict'),
     path('ticker/', app_views.ticker, name='ticker'),
