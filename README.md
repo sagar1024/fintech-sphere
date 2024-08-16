@@ -20,4 +20,3 @@
 - **API**: Alpha Vantage API for financial data
 - **Natural Language Processing**: NLTK for sentiment analysis
 - **Visualization**: Plotly for interactive charts
-- 
