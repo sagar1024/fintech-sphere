@@ -7,33 +7,6 @@ import io
 import base64
 from decimal import Decimal
 
-# def news_analysis_view(request):
-#     news_data = []
-#     form = TickerForm()
-#     graph = None  #Initializing graph to None
-    
-#     if request.method == 'POST':
-#         form = TickerForm(request.POST)
-#         if form.is_valid():
-#             stock_symbol = form.cleaned_data['ticker']
-#             news_feed = fetch_news(stock_symbol)
-#             for news in news_feed:
-#                 headline = news['title']
-#                 published_at = datetime.strptime(news['time_published'], '%Y%m%dT%H%M%S')
-#                 if published_at >= datetime.now() - timedelta(days=10):  # Filter news within the last 10 days
-#                     sentiment = analyze_sentiment(headline)
-#                     impact = Decimal('0.05') if sentiment == 'Positive' else Decimal('-0.05') if sentiment == 'Negative' else Decimal('0.00')
-#                     news_data.append({
-#                         'headline': headline,
-#                         'published_at': published_at,
-#                         'sentiment': sentiment,
-#                         'impact_on_stock': impact
-#                     })
-#             #Generating a stock price graph with impact
-#             graph = generate_stock_price_graph(stock_symbol, news_data)
-
-#     return render(request, 'news/news.html', {'form': form, 'news_data': news_data, 'graph': graph})
-
 def news_analysis_view(request):
     news_data = []
     form = TickerForm()
