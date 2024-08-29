@@ -18,7 +18,7 @@
 - **Frontend**: HTML, CSS, JavaScript
 - **Machine Learning**: scikit-learn
 - **API**: Alpha Vantage API for financial data
-- **Natural Language Processing**: NLTK for sentiment analysis
+- **NLP**: NLTK for sentiment analysis
 - **Visualization**: Plotly for interactive charts
 
 ## Motivation
