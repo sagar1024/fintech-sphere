@@ -114,7 +114,7 @@ def ticker(request):
 # The Predict Function to implement Machine Learning as well as Plotting
 def predict(request, ticker_value, number_of_days):
     try:
-        # ticker_value = request.POST.get('ticker')
+        #ticker_value = request.POST.get('ticker')
         ticker_value = ticker_value.upper()
         df = yf.download(tickers = ticker_value, period='1d', interval='1m')
         print("Downloaded ticker = {} successfully".format(ticker_value))
@@ -122,7 +122,7 @@ def predict(request, ticker_value, number_of_days):
         return render(request, 'API_Down.html', {})
 
     try:
-        # number_of_days = request.POST.get('days')
+        #number_of_days = request.POST.get('days')
         number_of_days = int(number_of_days)
     except:
         return render(request, 'Invalid_Days_Format.html', {})
@@ -165,19 +165,18 @@ def predict(request, ticker_value, number_of_days):
     plot_div = plot(fig, auto_open=False, output_type='div')
 
     # ==== Machine Learning ====
-
     try:
         df_ml = yf.download(tickers = ticker_value, period='3mo', interval='1h')
     except:
         ticker_value = 'AAPL'
         df_ml = yf.download(tickers = ticker_value, period='3mo', interval='1m')
 
-    # Fetching ticker values from Yahoo Finance API 
+    #Fetching ticker values from Yahoo Finance API 
     df_ml = df_ml[['Adj Close']]
     forecast_out = int(number_of_days)
     df_ml['Prediction'] = df_ml[['Adj Close']].shift(-forecast_out)
     
-    # Splitting data for Test and Train
+    #Splitting data for Test and Train
     X = np.array(df_ml.drop(['Prediction'],axis=1))
     X = preprocessing.scale(X)
     X_forecast = X[-forecast_out:]
@@ -186,19 +185,18 @@ def predict(request, ticker_value, number_of_days):
     y = y[:-forecast_out]
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size = 0.2)
     
-    # Applying Linear Regression
+    #Applying Linear Regression
     clf = LinearRegression()
     clf.fit(X_train,y_train)
     
-    # Prediction Score
+    #Prediction Score
     confidence = clf.score(X_test, y_test)
     
-    # Predicting for 'n' days stock data
+    #Predicting for 'n' days stock data
     forecast_prediction = clf.predict(X_forecast)
     forecast = forecast_prediction.tolist()
 
     # ==== Plotting predicted data ====
-
     pred_dict = {"Date": [], "Prediction": []}
     for i in range(0, len(forecast)):
         pred_dict["Date"].append(dt.datetime.today() + dt.timedelta(days=i))
