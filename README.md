@@ -20,4 +20,4 @@
 - **API**: Alpha Vantage and Yahoo Finance API
 - **NLP**: NLTK for sentiment analysis
 - **Visualization**: Plotly for interactive charts
-- 
+
