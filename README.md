@@ -17,10 +17,7 @@
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Python(Django)
 - **Machine Learning**: Scikit-learn
-- **API**: Alpha Vantage API for financial data
+- **API**: Alpha Vantage and Yahoo Finance API
 - **NLP**: NLTK for sentiment analysis
 - **Visualization**: Plotly for interactive charts
-
-## Motivation
-
-In the ever-evolving world of finance, staying ahead of market trends and making informed investment decisions is crucial. **FintechSphere** was conceived with the goal of providing a powerful tool for both amateur and experienced investors to navigate the complexities of the stock market.
+- 
