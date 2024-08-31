@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 class Project(models.Model):
     name = models.CharField(max_length=200)
     start_date = models.DateField()
@@ -18,3 +16,4 @@ class Project(models.Model):
         if self.week_number == "":
             self.week_number = self.start_date.isocalendar()[1]
         super().save(*args, **kwargs)
+        

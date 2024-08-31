@@ -1,38 +1,38 @@
 import numpy as np
 import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
 import json
 import qrcode
+import plotly.graph_objects as go
+import plotly.express as px
 import yfinance as yf
 import datetime as dt
+from urllib import request
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import RequestContext
-from urllib import request
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
 from django.contrib.auth.models import User
-from plotly.offline import plot
-from plotly.graph_objs import Scatter
 from .models import Project
 from sklearn.linear_model import LinearRegression
 from sklearn import preprocessing, model_selection, svm
+from plotly.offline import plot
+from plotly.graph_objs import Scatter
 
-# The Home page when Server loads up
+#The Home page when Server loads up
 def index(request):
-    # ==== Left Card Plot ====
-    # Here we use yf.download function
+    #Left Card Plot
+    #Here we use yf.download function
     data = yf.download(
         
-        # passes the ticker
+        #Passes the ticker
         tickers=['AAPL', 'AMZN', 'QCOM', 'META', 'NVDA', 'JPM'],
         
         group_by = 'ticker',
         
-        threads=True, # Set thread value to true
+        threads=True, #Set thread value to true
         
-        # used for access data[ticker]
+        #Used for access data[ticker]
         period='1mo', 
         interval='1d'
     )
@@ -62,7 +62,7 @@ def index(request):
 
     plot_div_left = plot(fig_left, auto_open=False, output_type='div')
 
-    # ==== To show recent stocks ====
+    #To show recent stocks
     
     df1 = yf.download(tickers = 'AAPL', period='1d', interval='1d')
     df2 = yf.download(tickers = 'AMZN', period='1d', interval='1d')
@@ -89,7 +89,7 @@ def index(request):
     recent_stocks = []
     recent_stocks = json.loads(json_records)
 
-    # ==== Page Render section ====
+    #Page Render section
 
     return render(request, 'index.html', {
         'plot_div_left': plot_div_left,
@@ -100,7 +100,7 @@ def search(request):
     return render(request, 'search.html', {})
 
 def ticker(request):
-    # ==== Load Ticker Table ====
+    #Load Ticker Table
     ticker_df = pd.read_csv('app/Data/new_tickers.csv') 
     json_ticker = ticker_df.reset_index().to_json(orient ='records')
     ticker_list = []
@@ -111,7 +111,7 @@ def ticker(request):
         'ticker_list': ticker_list
     })
 
-# The Predict Function to implement Machine Learning as well as Plotting
+#The Predict Function to implement Machine Learning as well as Plotting
 def predict(request, ticker_value, number_of_days):
     try:
         #ticker_value = request.POST.get('ticker')
@@ -164,7 +164,7 @@ def predict(request, ticker_value, number_of_days):
     fig.update_layout(paper_bgcolor="#14151b", plot_bgcolor="#14151b", font_color="white")
     plot_div = plot(fig, auto_open=False, output_type='div')
 
-    # ==== Machine Learning ====
+    #Machine Learning
     try:
         df_ml = yf.download(tickers = ticker_value, period='3mo', interval='1h')
     except:
@@ -196,7 +196,7 @@ def predict(request, ticker_value, number_of_days):
     forecast_prediction = clf.predict(X_forecast)
     forecast = forecast_prediction.tolist()
 
-    # ==== Plotting predicted data ====
+    #Plotting predicted data
     pred_dict = {"Date": [], "Prediction": []}
     for i in range(0, len(forecast)):
         pred_dict["Date"].append(dt.datetime.today() + dt.timedelta(days=i))
@@ -208,7 +208,7 @@ def predict(request, ticker_value, number_of_days):
     pred_fig.update_layout(paper_bgcolor="#14151b", plot_bgcolor="#14151b", font_color="white")
     plot_div_pred = plot(pred_fig, auto_open=False, output_type='div')
 
-    # ==== Display Ticker Info ====
+    #Display Ticker Info
     ticker = pd.read_csv('app/Data/Tickers.csv')
     to_search = ticker_value
     ticker.columns = ['Symbol', 'Name', 'Last_Sale', 'Net_Change', 'Percent_Change', 'Market_Cap', 'Country', 'IPO_Year', 'Volume', 'Sector', 'Industry']
@@ -246,4 +246,5 @@ def predict(request, ticker_value, number_of_days):
                                                     'Sector':Sector,
                                                     'Industry':Industry,
                                                     })
+    
     
