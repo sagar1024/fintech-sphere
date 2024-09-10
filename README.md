@@ -2,7 +2,7 @@
 
 ## Overview
 
-**FintechSphere** is a comprehensive web application designed for predicting stock prices and analyzing financial news.
+**FintechSphere** is a web application used for predicting stock prices and analyzing financial news.
 
 ## Features
 
