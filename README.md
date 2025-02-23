@@ -10,7 +10,7 @@
 - **Financial News Sentiment Analysis**: Analyzes the sentiment of news articles and calculates impact on stock prices.
 - **Virtual Investment**: Users can invest virtual coins in stocks using, with real-time simulation of stock prices.
 - **Interactive Charts**: Visual representations of stock price movements and predictions.
-- **User Profiles**: Users can manage their profiles, view their virtual coin balance, and track their investment portfolio.
+- **User Profiles**: Users can view their coin balance, and track their investment portfolio.
 
 #### Tech Stack
 
