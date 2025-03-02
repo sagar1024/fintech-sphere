@@ -4,7 +4,7 @@
 
 **FintechSphere** is a web application used for predicting stock prices and analyzing financial news. This specialization project was a part of our coursework at CHRIST University.
 
-#### Features
+### Features
 
 - **Stock Price Prediction**: Forecasts stock prices based on historical data and trends.
 - **Financial News Sentiment Analysis**: Analyzes the sentiment of news articles and calculates impact on stock prices.
@@ -12,7 +12,7 @@
 - **Interactive Charts**: Visual representations of stock price movements and predictions.
 - **User Profiles**: Users can view their coin balance, and track their investment portfolio.
 
-#### Tech Stack
+### Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Python(Django)
