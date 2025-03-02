@@ -1,6 +1,6 @@
 ## FintechSphere
 
-#### Overview
+### Overview
 
 **FintechSphere** is a web application used for predicting stock prices and analyzing financial news. This specialization project was a part of our coursework at CHRIST University.
 
