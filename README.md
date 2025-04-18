@@ -1,4 +1,4 @@
-## FintechSphere
+# FintechSphere - Stock Price Predictor & News Analyzer
 
 ### Overview
 
