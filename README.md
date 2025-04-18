@@ -1,10 +1,10 @@
 # FintechSphere - Stock Price Predictor & News Analyzer
 
-### Overview
+### Overview -
 
 **FintechSphere** is a web application used for predicting stock prices and analyzing financial news. This specialization project was a part of our coursework at CHRIST University.
 
-### Features
+### Features -
 
 - **Stock Price Prediction**: Forecasts stock prices based on historical data and trends.
 
@@ -16,7 +16,7 @@
 
 - **User Profiles**: Users can view their coin balance, and track their investment portfolio.
 
-### Tech Stack
+### Tech Stack -
 
 - **Frontend**: HTML, CSS, JavaScript
 
