@@ -32,5 +32,5 @@
 
 ## Authors -
 
-This project was developed by Sagar Gurung as a part of MCA curriculum at CHRIST University, Bangalore.
+Developed by Sagar Gurung as a part of MCA curriculum at CHRIST University, Bangalore.
 
