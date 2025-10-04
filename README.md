@@ -2,7 +2,7 @@
 
 ### Overview -
 
-**FintechSphere** is a stock price predictor, financial news analyzer and real-time investment simulator. This specialization project was a part of our coursework at CHRIST University.
+**FintechSphere** is a stock price predictor, financial news sentiment analyzer and real-time investment simulator.
 
 ---
 
@@ -37,4 +37,5 @@
 ## Authors -
 
 Developed by Sagar Gurung, under the supervision of Dept of CS, CHRIST University, Bangalore.
+
 
