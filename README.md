@@ -2,7 +2,7 @@
 
 ### Overview -
 
-**FintechSphere** is a web application used for predicting stock prices and analyzing financial news. This specialization project was a part of our coursework at CHRIST University.
+**FintechSphere** is a stock price predictor, financial news analyzer and real-time investment simulator. This specialization project was a part of our coursework at CHRIST University.
 
 ---
 
@@ -37,3 +37,4 @@
 ## Authors -
 
 Developed by Sagar Gurung, under the supervision of Dept of CS, CHRIST University, Bangalore.
+
