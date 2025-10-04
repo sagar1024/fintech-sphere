@@ -1,12 +1,12 @@
 # FintechSphere - Stock Price Predictor & News Analyzer
 
-### Overview -
+### Overview
 
 **FintechSphere** is a stock price predictor, financial news sentiment analyzer and real-time investment simulator.
 
 ---
 
-### Features -
+### Features
 
 - **Stock Price Prediction**: Forecasts stock prices based on historical data and trends.
 
@@ -20,7 +20,7 @@
 
 ---
 
-### Tech Stack -
+### Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
 
@@ -34,8 +34,11 @@
 
 - **Visualization**: Plotly for interactive charts
 
-## Authors -
+---
+
+### Authors
 
 Developed by Sagar Gurung, under the supervision of Dept of CS, CHRIST University, Bangalore.
+
 
 
